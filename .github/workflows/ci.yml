@@ -17,13 +17,24 @@ jobs:
             - name: "Checkout repository"
               uses: actions/checkout@v4
 
-            # 8. Show Github information
+            # 1. Context = the information/data available to your workflow.
+            # 2. Expression
+            # An expression is the syntax you use to access or work with that data.
+            # The syntax is:
+            # ${{ ... }}
+
+            # 8. Show Github information (Github Expression -> To get values dynamically)
             - name: "Show GitHub information"
-              run: | 
-                echo "Repository: ${{ github.repository }}"
-                echo "User: ${{ github.actor }}"
-                echo "Event: ${{ github.event_name }}"
+              run: |
+                  echo "Repository: ${{ github.repository }}"
+                  echo "User: ${{ github.actor }}"
+                  echo "Event: ${{ github.event_name }}"
 
             # 9. Run a shell command on the runner
             - name: "Greet user"
-              run: echo "Hello world!"
+              run: echo "Hello Everyone!"
+
+            # 10. Run this step only when code is pushed to main
+            - name: "Main branch message"
+              if: github.ref == 'refs/heads/main'
+              run: echo "This is the main branch"
