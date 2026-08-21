@@ -2,7 +2,9 @@
 name: Greeting
 
 # 2. Event: workflow runs whenever code is pushed
-on: push
+on:
+    push:
+    pull_request:
 
 # 3. Jobs: defines the work we want to perform
 jobs:
