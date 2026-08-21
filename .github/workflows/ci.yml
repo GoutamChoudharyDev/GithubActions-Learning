@@ -17,6 +17,13 @@ jobs:
             - name: "Checkout repository"
               uses: actions/checkout@v4
 
-            # 8. Run a shell command on the runner
+            # 8. Show Github information
+            - name: "Show GitHub information"
+              run: | 
+                echo "Repository: ${{ github.repository }}"
+                echo "User: ${{ github.actor }}"
+                echo "Event: ${{ github.event_name }}"
+
+            # 9. Run a shell command on the runner
             - name: "Greet user"
               run: echo "Hello world!"
