@@ -5,6 +5,7 @@ name: Greeting
 on:
     push:
     pull_request:
+    workflow_dispatch:
 
 # 3. Jobs: defines the work we want to perform
 jobs:
@@ -34,7 +35,7 @@ jobs:
 
             # 9. Run a shell command on the runner
             - name: "Greet user"
-              run: echo "Hello Everyone!"
+              run: echo "Hello from b1 branch!"
 
             # 10. Run this step only when code is pushed to main
             - name: "Main branch message"
