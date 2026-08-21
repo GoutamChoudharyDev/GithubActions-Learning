@@ -1,11 +1,15 @@
-const express = require("express");
+import express from "express";
 
 const app = express();
 
-const PORT = 3004;
+const PORT = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Kubernetes Storage App is running!");
+  res.send("Hello DevOps!");
+});
+
+app.get("/health", (req, res) => {
+  res.json({ status: "OK" });
 });
 
 app.listen(PORT, () => {
