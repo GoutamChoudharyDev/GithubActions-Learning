@@ -1,8 +1,22 @@
+# 1. Workflow name
 name: Greeting
+
+# 2. Event: workflow runs whenever code is pushed
 on: push
+
+# 3. Jobs: defines the work we want to perform
 jobs:
+    # 4. Job name
     greet:
+        # 5. GitHub provides an Ubuntu machine to run this job
         runs-on: ubuntu-latest
-        steps: 
-            - name: "greet user"
+
+        # 6. Steps: individual tasks inside the job
+        steps:
+            # 7. Checkout the repository code onto the runner
+            - name: "Checkout repository"
+              uses: actions/checkout@v4
+
+            # 8. Run a shell command on the runner
+            - name: "Greet user"
               run: echo "Hello world!"
